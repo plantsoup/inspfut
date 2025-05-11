@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspirational Futures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #1e397c;
+            --accent: #ffc400;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            line-height: 1.7;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--primary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(30, 57, 124, 0.95), rgba(30, 57, 124, 0.85)),
+                        url('https://picsum.photos/1920/800');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-alt {
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* Button Styles */
+        .button {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 196, 0, 0.3);
+        }
+
+        /* Service Icons */
+        .service-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-icon-img {
+            width: 100px;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        /* Well-beeings Section */
+        .bee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .bee-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--accent);
+        }
+
+        .bee-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bee-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Inspirational Futures</a>
+            <div class="nav-links">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#bees" class="nav-link">Well-beeings</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Nurturing Minds, Building Futures</h1>
+            <p class="lead">Empowering Wales' children through positive mental health education</p>
+            <a href="#contact" class="button" style="margin-top: 2rem;">
+                Get Started
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="grid">
+                <a href="https://inspirationalfutures.org/well-being-of-teens-workshops/" class="card card-link">
+                    <i class="fas fa-hands-helping service-icon"></i>
+                    <h3>Interactive Workshops</h3>
+                    <p>Engaging sessions for schools and communities to promote positive mental health habits.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <div class="button">
+                            Explore Workshops
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="card">
+                    <img src="https://inspirationalfutures.org/wp-content/uploads/2023/05/emblem-5.jpg" 
+                         alt="Well-Beeing's Workbook Cover"
+                         class="service-icon-img">
+                    <h3>Educational Workbooks</h3>
+                    <p>Comprehensive resources supporting mental wellbeing in classrooms and homes.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://inspirationalfutures.org/wp-content/uploads/2023/05/emblem-5.jpg" 
+                           class="button" 
+                           download="Well-Beeings-Workbook">
+                            <i class="fas fa-download"></i>
+                            Download Sample
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="bees">
+        <div class="container">
+            <h2 class="section-title">Meet The Well-beeings!</h2>
+            <div class="bee-grid">
+                <!-- Bee Mindful -->
+                <div class="bee-card">
+                    <img src="https://inspirationalfutures.org/wp-content/uploads/2020/05/Well-being-bees_Final_Bee-6.png" 
+                         alt="Mindful Bee" 
+                         class="bee-image">
+                    <h3>Bee Mindful</h3>
+                    <p>Developing mindfulness and emotional awareness</p>
+                </div>
+    
+                <!-- Bee Connected -->
+                <div class="bee-card">
+                    <img src="https://inspirationalfutures.org/wp-content/uploads/2020/05/Well-being-bees_Final_Bee-5.png" 
+                         alt="Connected Bee" 
+                         class="bee-image">
+                    <h3>Bee Connected</h3>
+                    <p>Building strong, supportive relationships</p>
+                </div>
+    
+                <!-- Bee Active -->
+                <div class="bee-card">
+                    <img src="https://inspirationalfutures.org/wp-content/uploads/2020/05/Well-being-bees_Final_Bee-4.png" 
+                         alt="Active Bee" 
+                         class="bee-image">
+                    <h3>Bee Active</h3>
+                    <p>Promoting physical health and energy</p>
+                </div>
+    
+                <!-- Social Bees -->
+                <div class="bee-card">
+                    <img src="https://inspirationalfutures.org/wp-content/uploads/2020/05/Well-being-bees_Final_Bee-8.png" 
+                         alt="Social Bee" 
+                         class="bee-image">
+                    <h3>Social Bees</h3>
+                    <p>Encouraging positive social interactions</p>
+                </div>
+    
+                <!-- Bee Thoughtful -->
+                <div class="bee-card">
+                    <img src="https://inspirationalfutures.org/wp-content/uploads/2020/05/Well-being-bees_Final_Bee-7.png" 
+                         alt="Thoughtful Bee" 
+                         class="bee-image">
+                    <h3>Bee Thoughtful</h3>
+                    <p>Cultivating empathy and kindness</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section" id="contact">
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 2rem;">Contact Us</h3>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="#" class="button">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+                <a href="#" class="button">
+                    <i class="fas fa-phone"></i>
+                    Call
+                </a>
+            </div>
+            <p style="margin-top: 3rem;">© 2023 Inspirational Futures. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
